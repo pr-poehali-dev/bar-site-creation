@@ -1,335 +1,219 @@
-import { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [selectedCocktail, setSelectedCocktail] = useState<number | null>(null);
-
-  const cocktails = [
-    {
-      id: 1,
-      name: 'Олд Фэшн',
-      ingredients: ['Виски', 'Сахарный сироп', 'Ангостура', 'Лёд'],
-      description: 'Классический коктейль с насыщенным вкусом виски и легкими нотками сладости',
-      price: '650₽',
-      category: 'Классика',
-      strength: 'Крепкий'
-    },
-    {
-      id: 2,
-      name: 'Мартини Эспрессо',
-      ingredients: ['Водка', 'Кофейный ликер', 'Эспрессо', 'Сироп'],
-      description: 'Современная интерпретация классики с бодрящим эспрессо',
-      price: '580₽',
-      category: 'Авторская',
-      strength: 'Средний'
-    },
-    {
-      id: 3,
-      name: 'Негрони',
-      ingredients: ['Джин', 'Кампари', 'Вермут', 'Апельсин'],
-      description: 'Горько-сладкий итальянский коктейль с цитрусовыми нотками',
-      price: '620₽',
-      category: 'Классика',
-      strength: 'Крепкий'
-    },
-    {
-      id: 4,
-      name: 'Мохито',
-      ingredients: ['Белый ром', 'Мята', 'Лайм', 'Содовая', 'Сахар'],
-      description: 'Освежающий кубинский коктейль с мятой и лаймом',
-      price: '520₽',
-      category: 'Освежающие',
-      strength: 'Легкий'
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-background">
-      {/* Navigation */}
-      <nav className="bg-primary text-primary-foreground py-4 px-6 shadow-lg">
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">АДЕТАГМИТИА</h1>
-          <div className="flex space-x-8">
-            <a href="#menu" className="hover:text-accent transition-colors">Меню</a>
-            <a href="#interior" className="hover:text-accent transition-colors">Интерьер</a>
-            <a href="#booking" className="hover:text-accent transition-colors">Бронирование</a>
-            <a href="#contacts" className="hover:text-accent transition-colors">Контакты</a>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(/img/f1f62c60-cffd-4038-b627-02425e28f087.jpg)',
-            filter: 'brightness(0.4)'
-          }}
-        />
-        <div className="relative z-10 text-center text-white px-6 max-w-4xl">
-          <h2 className="text-6xl font-bold mb-6">Добро пожаловать в АДЕТАГМИТИА</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Уютная атмосфера, авторские коктейли и незабываемые вечера в сердце города
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-slate-800 mb-4">
+            Фирменный стиль Kalinkina Realty
+          </h1>
+          <p className="text-lg text-slate-600">
+            Логотип, визитка и вывеска в едином стиле
           </p>
-          <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-            <Icon name="Wine" className="mr-2" size={20} />
-            Посмотреть меню
-          </Button>
         </div>
-      </section>
 
-      {/* Cocktail Menu */}
-      <section id="menu" className="py-20 px-6 bg-muted/20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Коктейльная карта</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Откройте для себя мир вкусов в нашей интерактивной коктейльной карте
-            </p>
-          </div>
+        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {cocktails.map((cocktail) => (
-              <Card 
-                key={cocktail.id}
-                className={`cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105 ${
-                  selectedCocktail === cocktail.id ? 'ring-2 ring-accent shadow-lg' : ''
-                }`}
-                onClick={() => setSelectedCocktail(selectedCocktail === cocktail.id ? null : cocktail.id)}
-              >
-                <CardHeader>
-                  <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="text-xl">{cocktail.name}</CardTitle>
-                    <Badge variant={cocktail.strength === 'Крепкий' ? 'destructive' : cocktail.strength === 'Средний' ? 'secondary' : 'outline'}>
-                      {cocktail.strength}
-                    </Badge>
+          {/* Логотип */}
+          <Card className="p-8 bg-white shadow-xl">
+            <CardContent className="p-0">
+              <h2 className="text-2xl font-bold mb-6 text-center text-slate-800">Логотип</h2>
+              
+              <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-8 rounded-xl text-center mb-6">
+                <div className="mb-4">
+                  <div className="inline-flex items-center justify-center w-24 h-24 bg-white rounded-2xl shadow-lg mb-4">
+                    <span className="text-4xl font-black text-blue-700 tracking-tight">OK</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <Badge variant="outline">{cocktail.category}</Badge>
-                    <span className="text-lg font-bold text-accent">{cocktail.price}</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="mb-4">
-                    {cocktail.description}
-                  </CardDescription>
-                  
-                  {selectedCocktail === cocktail.id && (
-                    <div className="animate-accordion-down">
-                      <div className="border-t pt-4">
-                        <h4 className="font-semibold mb-2">Состав:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {cocktail.ingredients.map((ingredient, index) => (
-                            <Badge key={index} variant="secondary" className="text-xs">
-                              {ingredient}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div className="flex items-center justify-between mt-4">
-                    <Icon 
-                      name={selectedCocktail === cocktail.id ? "ChevronUp" : "ChevronDown"} 
-                      size={16}
-                      className="text-muted-foreground"
-                    />
-                    <Button variant="outline" size="sm">
-                      <Icon name="ShoppingCart" size={14} className="mr-1" />
-                      Заказать
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+                </div>
+                <h3 className="text-2xl font-light text-white tracking-wider">
+                  KALINKINA REALTY
+                </h3>
+              </div>
 
-      {/* Interior Section */}
-      <section id="interior" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Интерьер</h2>
-            <p className="text-lg text-muted-foreground">
-              Погрузитесь в атмосферу уюта и элегантности
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-semibold mb-4">Уютная атмосфера</h3>
-              <p className="text-muted-foreground mb-6">
-                Наш интерьер сочетает в себе современные решения и классические элементы. 
-                Тёплые тона, мягкий свет и комфортабельная мебель создают идеальную обстановку 
-                для романтического ужина или встречи с друзьями.
-              </p>
-              <div className="flex space-x-4">
-                <Badge variant="secondary">
-                  <Icon name="Users" size={14} className="mr-1" />
-                  До 80 гостей
-                </Badge>
-                <Badge variant="secondary">
-                  <Icon name="Music" size={14} className="mr-1" />
-                  Живая музыка
-                </Badge>
-                <Badge variant="secondary">
-                  <Icon name="Wifi" size={14} className="mr-1" />
-                  Wi-Fi
-                </Badge>
-              </div>
-            </div>
-            <div className="relative">
-              <img 
-                src="/img/1a5a4665-14ec-4c78-80ee-8d8a7ceb96f2.jpg" 
-                alt="Интерьер бара"
-                className="rounded-lg shadow-xl w-full h-80 object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Booking Section */}
-      <section id="booking" className="py-20 px-6 bg-muted/20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Бронирование</h2>
-            <p className="text-lg text-muted-foreground">
-              Забронируйте столик и насладитесь незабываемым вечером
-            </p>
-          </div>
-          
-          <Card className="p-8">
-            <form className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Имя</label>
-                  <Input placeholder="Ваше имя" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Телефон</label>
-                  <Input placeholder="+7 (999) 999-99-99" />
-                </div>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Дата</label>
-                  <Input type="date" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Время</label>
-                  <Input type="time" />
-                </div>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Количество гостей</label>
-                  <Input type="number" min="1" max="10" placeholder="2" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-2">Предпочтения</label>
-                  <Input placeholder="У окна, тихий столик..." />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-2">Комментарий</label>
-                <Textarea placeholder="Дополнительные пожелания..." />
-              </div>
-              
-              <Button className="w-full bg-accent hover:bg-accent/90">
-                <Icon name="Calendar" className="mr-2" size={20} />
-                Забронировать столик
-              </Button>
-            </form>
-          </Card>
-        </div>
-      </section>
-
-      {/* Contacts Section */}
-      <section id="contacts" className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Контакты</h2>
-            <p className="text-lg text-muted-foreground">
-              Мы будем рады видеть вас в АДЕТАГМИТИА
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6">Как нас найти</h3>
+              {/* Варианты логотипа */}
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Icon name="MapPin" size={20} className="text-accent" />
-                  <span>ул. Мира, 15, Москва, 101000</span>
+                <div className="bg-slate-800 p-6 rounded-lg text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-xl shadow-lg mb-3">
+                    <span className="text-2xl font-black text-blue-700">OK</span>
+                  </div>
+                  <h4 className="text-lg font-light text-white tracking-wide">
+                    KALINKINA REALTY
+                  </h4>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Icon name="Phone" size={20} className="text-accent" />
-                  <span>+7 (495) 123-45-67</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Icon name="Mail" size={20} className="text-accent" />
-                  <span>info@adetagmitia.ru</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Icon name="Clock" size={20} className="text-accent" />
-                  <span>Пн-Вс: 18:00 - 02:00</span>
+
+                <div className="bg-white border-2 border-blue-200 p-6 rounded-lg text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-700 rounded-xl shadow-lg mb-3">
+                    <span className="text-2xl font-black text-white">OK</span>
+                  </div>
+                  <h4 className="text-lg font-light text-blue-700 tracking-wide">
+                    KALINKINA ESTATE
+                  </h4>
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Визитка */}
+          <Card className="p-8 bg-white shadow-xl">
+            <CardContent className="p-0">
+              <h2 className="text-2xl font-bold mb-6 text-center text-slate-800">Визитка</h2>
               
-              <div className="mt-8">
-                <h4 className="text-lg font-semibold mb-4">Следите за нами</h4>
-                <div className="flex space-x-4">
-                  <Button variant="outline" size="sm">
-                    <Icon name="Instagram" size={16} />
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <Icon name="Facebook" size={16} />
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <Icon name="Twitter" size={16} />
-                  </Button>
+              {/* Лицевая сторона */}
+              <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-6 rounded-xl text-white mb-4 aspect-[1.75/1] flex flex-col justify-between">
+                <div className="flex items-start justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                      <span className="text-lg font-black text-blue-700">OK</span>
+                    </div>
+                    <div>
+                      <h3 className="text-sm font-light tracking-wider">KALINKINA</h3>
+                      <h4 className="text-sm font-light tracking-wider">REALTY</h4>
+                    </div>
+                  </div>
+                  <Icon name="Home" size={24} className="text-blue-200" />
                 </div>
+                
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">Калинкина Оксана Павловна</h3>
+                  <p className="text-sm text-blue-100">Риэлтор • Юрист по недвижимости</p>
+                </div>
+              </div>
+
+              {/* Обратная сторона */}
+              <div className="bg-white border-2 border-blue-100 p-6 rounded-xl aspect-[1.75/1] flex flex-col justify-center space-y-3">
+                <div className="flex items-center space-x-3 text-slate-700">
+                  <Icon name="Phone" size={16} className="text-blue-600" />
+                  <span className="text-sm font-medium">8 902 353 02 01</span>
+                </div>
+                <div className="flex items-center space-x-3 text-slate-700">
+                  <Icon name="Mail" size={16} className="text-blue-600" />
+                  <span className="text-sm font-medium">o.kalinkina@realty.com</span>
+                </div>
+                <div className="flex items-center space-x-3 text-slate-700">
+                  <Icon name="MapPin" size={16} className="text-blue-600" />
+                  <span className="text-sm font-medium">Москва</span>
+                </div>
+                <div className="flex items-center space-x-3 text-slate-700">
+                  <Icon name="Globe" size={16} className="text-blue-600" />
+                  <span className="text-sm font-medium">kalinkina-realty.ru</span>
+                </div>
+              </div>
+
+              <Badge variant="secondary" className="w-full justify-center mt-4">
+                85 × 55 мм (стандарт)
+              </Badge>
+            </CardContent>
+          </Card>
+
+          {/* Вывеска */}
+          <Card className="p-8 bg-white shadow-xl lg:col-span-2 xl:col-span-1">
+            <CardContent className="p-0">
+              <h2 className="text-2xl font-bold mb-6 text-center text-slate-800">Вывеска</h2>
+              
+              <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-8 rounded-xl text-white aspect-[4/3] flex flex-col justify-between">
+                {/* Верхняя часть с логотипом */}
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-white rounded-2xl shadow-lg mb-4">
+                    <span className="text-3xl font-black text-blue-700">OK</span>
+                  </div>
+                  <h2 className="text-2xl font-light tracking-wider">KALINKINA REALTY</h2>
+                </div>
+
+                {/* Центральная часть с информацией */}
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-semibold">Калинкина Оксана Павловна</h3>
+                  <p className="text-lg text-blue-100">Риэлтор, юрист по недвижимости</p>
+                  <p className="text-2xl font-bold tracking-wider">8 902 353 02 01</p>
+                </div>
+
+                {/* Нижняя часть с QR-кодом */}
+                <div className="flex items-center justify-between">
+                  <div className="text-left">
+                    <p className="text-sm text-blue-200">Сканируйте QR-код</p>
+                    <p className="text-xs text-blue-300">Наши соц. сети</p>
+                  </div>
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 bg-slate-800 rounded grid grid-cols-4 gap-px p-1">
+                      {Array.from({length: 16}).map((_, i) => (
+                        <div key={i} className={`${Math.random() > 0.5 ? 'bg-white' : 'bg-slate-800'} rounded-sm`} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 space-y-2">
+                <Badge variant="outline" className="w-full justify-center">
+                  Рекомендуемый размер: 40 × 30 см
+                </Badge>
+                <Badge variant="secondary" className="w-full justify-center">
+                  Материал: композит/пластик
+                </Badge>
+              </div>
+            </CardContent>
+          </Card>
+
+        </div>
+
+        {/* Цветовая схема */}
+        <Card className="mt-8 p-8 bg-white shadow-xl">
+          <CardContent className="p-0">
+            <h2 className="text-2xl font-bold mb-6 text-center text-slate-800">Цветовая схема</h2>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="text-center">
+                <div className="w-full h-20 bg-blue-700 rounded-lg mb-2"></div>
+                <p className="font-semibold text-sm">Основной</p>
+                <p className="text-xs text-slate-500">#1D4ED8</p>
+              </div>
+              <div className="text-center">
+                <div className="w-full h-20 bg-blue-100 rounded-lg mb-2"></div>
+                <p className="font-semibold text-sm">Светлый</p>
+                <p className="text-xs text-slate-500">#DBEAFE</p>
+              </div>
+              <div className="text-center">
+                <div className="w-full h-20 bg-slate-800 rounded-lg mb-2"></div>
+                <p className="font-semibold text-sm">Темный</p>
+                <p className="text-xs text-slate-500">#1E293B</p>
+              </div>
+              <div className="text-center">
+                <div className="w-full h-20 bg-white border-2 border-slate-200 rounded-lg mb-2"></div>
+                <p className="font-semibold text-sm">Белый</p>
+                <p className="text-xs text-slate-500">#FFFFFF</p>
               </div>
             </div>
-            
-            <Card className="p-6">
-              <h4 className="text-lg font-semibold mb-4">Написать нам</h4>
-              <form className="space-y-4">
-                <Input placeholder="Ваше имя" />
-                <Input placeholder="Email" type="email" />
-                <Textarea placeholder="Ваше сообщение..." />
-                <Button className="w-full">
-                  <Icon name="Send" className="mr-2" size={16} />
-                  Отправить сообщение
-                </Button>
-              </form>
-            </Card>
-          </div>
-        </div>
-      </section>
+          </CardContent>
+        </Card>
 
-      {/* Footer */}
-      <footer className="bg-primary text-primary-foreground py-8 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-4">АДЕТАГМИТИА</h3>
-          <p className="opacity-80 mb-4">Бар с душой в центре Москвы</p>
-          <p className="text-sm opacity-60">
-            © 2024 АДЕТАГМИТИА. Все права защищены.
-          </p>
-        </div>
-      </footer>
+        {/* Рекомендации */}
+        <Card className="mt-8 p-8 bg-gradient-to-r from-blue-50 to-slate-50 border-blue-200">
+          <CardContent className="p-0">
+            <h2 className="text-2xl font-bold mb-6 text-center text-slate-800">Рекомендации по печати</h2>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <Icon name="Printer" size={32} className="mx-auto mb-3 text-blue-600" />
+                <h3 className="font-semibold mb-2">Визитки</h3>
+                <p className="text-sm text-slate-600">Плотная бумага 300г/м², матовая или глянцевая ламинация</p>
+              </div>
+              <div className="text-center">
+                <Icon name="Monitor" size={32} className="mx-auto mb-3 text-blue-600" />
+                <h3 className="font-semibold mb-2">Вывеска</h3>
+                <p className="text-sm text-slate-600">Композитный материал с УФ-печатью, защита от выгорания</p>
+              </div>
+              <div className="text-center">
+                <Icon name="Smartphone" size={32} className="mx-auto mb-3 text-blue-600" />
+                <h3 className="font-semibold mb-2">QR-код</h3>
+                <p className="text-sm text-slate-600">Генерируйте ссылку на ваши социальные сети или сайт</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+      </div>
     </div>
   );
 };
